@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Postcard Template Creator</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <svg id="postcard" viewBox="0 0 900 600">
+            <rect width="900" height="600" fill="white" />
+            
+            <!-- Frame -->
+            <path id="frame" fill="none" stroke="#000082" stroke-width="2" />
+            
+            <!-- Text area
+            <foreignObject id="textArea" x="20" y="20" width="560" height="300">
+                <div xmlns="http://www.w3.org/1999/xhtml" id="textContent"></div>
+            </foreignObject>
+             -->
+            <!-- Stamp area -->
+            <path id="stamp" fill="none" stroke="#000082" stroke-width="2" stroke-dasharray="12"/>
+            
+            <!-- Lines -->
+            <path id="lines" fill="none" stroke="#000082" stroke-width="2" />
+        </svg>
+        <!-- <br>
+        <textarea id="messageInput" placeholder="Enter your message here"></textarea>
+        <br> -->
+      
+
+        <div class="controls">
+           
+            <div class="control-group">
+                <h3>Frame</h3>
+                <div><label>X Position:</label><input type="range" id="frameX" min="0" max="400" value="50"></div>
+                <div><label>Y Position:</label><input type="range" id="frameY" min="0" max="400" value="50"></div>
+                <div><label>Width:</label><input type="range" id="frameWidth" min="200" max="800" value="800"></div>
+                <div><label>Height:</label><input type="range" id="frameHeight" min="200" max="800" value="500"></div>
+                <div><label>Points per side:</label><input type="range" id="framePointsPerSide" min="2" max="100" value="50"></div>
+                <div><label>Noise amount:</label><input type="range" id="frameNoiseAmount" min="0" max="100" value="25"></div>
+                <div><label>Smooth curve:</label><input type="checkbox" id="frameSmoothCurve" value="checked" checked></div>
+                <div><label>Dash amount:</label><input type="range" id="frameDashAmount" min="0" max="100" value="0"></div>
+                <div><label>Stroke amount:</label><input type="range" id="frameStrokeAmount" min="0" max="100" value="8"></div>
+            </div>
+            <div class="control-group">
+                <h3>Stamp</h3>
+                <div><label>X Position:</label><input type="range" id="stampX" min="0" max="900" value="675"></div>
+                <div><label>Y Position:</label><input type="range" id="stampY" min="0" max="550" value="100"></div>
+                <div><label>Size:</label><input type="range" id="stampSize" min="10" max="200" value="125"></div>
+                <div><label>Points per side:</label><input type="range" id="stampPointsPerSide" min="2" max="100" value="20"></div>
+                <div><label>Noise amount:</label><input type="range" id="stampNoiseAmount" min="0" max="100" value="5"></div>
+                <div><label>Smooth curve:</label><input type="checkbox" id="stampSmoothCurve" checked></div>
+                <div><label>Dash amount:</label><input type="range" id="stampDashAmount" min="0" max="100" value="0"></div>
+                <div><label>Stroke amount:</label><input type="range" id="stampStrokeAmount" min="0" max="100" value="8"></div>
+            </div>
+            <div class="control-group">
+                <h3>Line</h3>
+                <div><label>X Position:</label><input type="range" id="linesX" min="0" max="900" value="150"></div>
+                <div><label>Y Position:</label><input type="range" id="linesY" min="0" max="550" value="450"></div>
+                <div><label>Width:</label><input type="range" id="linesWidth" min="0" max="800" value="300"></div>
+                <div><label>Height:</label><input type="range" id="linesHeight" min="0" max="800" value="100"></div>
+                <div><label>Points per side:</label><input type="range" id="linesPointsPerSide" min="2" max="100" value="20"></div>
+                <div><label>Noise amount:</label><input type="range" id="linesNoiseAmount" min="0" max="100" value="24"></div>
+                <div><label>Smooth curve:</label><input type="checkbox" id="linesSmoothCurve" checked></div>
+                <div><label>Dash amount:</label><input type="range" id="linesDashAmount" min="0" max="100" value="0"></div>
+                <div><label>Stroke amount:</label><input type="range" id="linesStrokeAmount" min="0" max="100" value="8"></div>
+            </div>
+            
+        </div>
+        <div class="control-group">
+            <button onclick="saveAsImage()">Save as Svg
+                
+                <label>Noise Save</label><input type="range" id="linesStrokeAmount" min="0" max="100" value="8"></div>  
+            </button>
+            <button onclick="saveAsPng()">Save as Png</button>
+            <div>
+        </div>
+</div>
+
+  <script src="script.js"></script>
+</body
