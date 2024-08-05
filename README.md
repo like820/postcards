@@ -1,4 +1,3 @@
 # postcards
-# postcards
-# postcards
-# postcards
+
+who uses postcards these days?
