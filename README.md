@@ -1,5 +1,4 @@
-<body font-family: monospace;
-    letter-spacing: 0.082em;>
+<body>
   
 
   # postcards
