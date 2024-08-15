@@ -15,6 +15,7 @@ let lineY2='#line0Y2';
 let linePointsPerLine='#line0Points';
 let lineNoise='#line0Noise';
 let lineSmooth='#line0Smooth';
+
 //wavyPath Funcition
 function createWavyPath(x, y, width, height, pointsPerSide, noiseAmount) {
     let points = [];
@@ -167,6 +168,7 @@ function updatePostcard() {
     let frameStrokeAmount = parseInt(document.getElementById('frameStrokeAmount').value);
     let frameSmoothCurve = document.getElementById('frameSmoothCurve').checked;
     // frameNoiseAmount= frameNoiseAmount+10;
+    
     let framePoints = createWavyPath(frameX, frameY, frameWidth, frameHeight, framePointsPerSide, frameNoiseAmount);
     frame.setAttribute('d', pointsToPath(framePoints, true, frameSmoothCurve));
     frame.setAttribute('stroke-dasharray', frameDashAmount);
@@ -207,9 +209,6 @@ function updatePostcard() {
     lines.setAttribute('stroke-dasharray', linesDashAmount);
     lines.setAttribute('stroke-width', linesStrokeAmount);
 
-
-
-
 }
 
 // Add event listeners to all input elements
@@ -226,23 +225,27 @@ function saveAsPng() {
     let ctx = canvas.getContext('2d');
     let img = new Image();
 
-    let frameWidth = 2700;
-    let frameHeight = 4200;
-    canvas.width = frameWidth;
-    canvas.height = frameHeight;
-    let postcardWidth =frameWidth/4;
+    let frameWidth = 2000;
+    let frameHeight = 2800;
+    // canvas.width = frameWidth;
+    // canvas.height = frameHeight;
+    let postcardWidth =frameWidth/2;
     let postcardHeight =frameHeight/4;
-
-
+  
     // Set the canvas dimensions to match the frame size
-   
+   canvas.width = postcardWidth*2;
+   canvas.height = postcardHeight*4;
+
+
+   img.src = 'data:image/svg+xml;base64,' + btoa(svgData);
     img.onload = function () {
         for (i=0; i<2; i++){
             for(j=0; j<4; j++){
-                // linesNoiseAmount.value= linesNoiseAmount.value+100;
+               
+              
                 updatePostcard(); 
-                console.log(linesNoiseAmount);
-                ctx.drawImage(img, postcardHeight*i, postcardWidth*j, postcardHeight, postcardWidth);
+                // console.log(linesNoiseAmount.value);
+                ctx.drawImage(img, postcardWidth*i, postcardHeight*j, postcardWidth, postcardHeight);
               
             }
            
@@ -255,8 +258,10 @@ function saveAsPng() {
     link.click();
     };
 
-    img.src = 'data:image/svg+xml;base64,' + btoa(svgData);
+    
 }
+
+
 function saveAsImage() {
 
     var svg = document.getElementById('postcard');
@@ -269,7 +274,7 @@ function saveAsImage() {
 var serializer = new XMLSerializer();
 var svgString = serializer.serializeToString(svg);
 
-    var link = document.createElement('a');
+var link = document.createElement('a');
 link.href = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgString);
 link.download = 'postcard.svg';
 link.click();
