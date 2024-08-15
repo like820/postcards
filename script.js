@@ -269,14 +269,6 @@ function saveAsImage() {
 var serializer = new XMLSerializer();
 var svgString = serializer.serializeToString(svg);
 
-    // Get the dimensions of the white rectangle
-    let frameWidth = parseInt(document.getElementById('frameWidth').value);
-    let frameHeight = parseInt(document.getElementById('frameHeight').value);
-
-    // Set the canvas dimensions to match the frame size
-    canvas.width = frameWidth;
-    canvas.height = frameHeight;
-
     var link = document.createElement('a');
 link.href = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgString);
 link.download = 'postcard.svg';
