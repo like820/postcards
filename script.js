@@ -218,50 +218,107 @@ document.querySelectorAll('input').forEach(input => {
 
 
 // Add code inside the function or remove the function if not needed
-function saveAsPng() {
-    let svg = document.querySelector('svg');
-    let svgData = new XMLSerializer().serializeToString(svg);
-    let canvas = document.createElement('canvas');
-    let ctx = canvas.getContext('2d');
-    let img = new Image();
+// function saveAsPng() {
+//     let svg = document.querySelector('svg');
+//     let svgData = new XMLSerializer().serializeToString(svg);
+//     let canvas = document.createElement('canvas');
+//     let ctx = canvas.getContext('2d');
+//     let img = new Image();
 
-    let frameWidth = 2000;
-    let frameHeight = 2800;
-    // canvas.width = frameWidth;
-    // canvas.height = frameHeight;
-    let postcardWidth =frameWidth/2;
-    let postcardHeight =frameHeight/4;
+//     let frameWidth = 2970;
+//     let frameHeight = 4200;
+//     // canvas.width = frameWidth;
+//     // canvas.height = frameHeight;
+//     let postcardWidth =frameWidth/2;
+//     let postcardHeight =frameHeight/4;
   
-    // Set the canvas dimensions to match the frame size
-   canvas.width = postcardWidth*2;
-   canvas.height = postcardHeight*4;
+//     // Set the canvas dimensions to match the frame size
+//    canvas.width = postcardWidth*2;
+//    canvas.height = postcardHeight*4;
 
-
-   img.src = 'data:image/svg+xml;base64,' + btoa(svgData);
-    img.onload = function () {
-        for (i=0; i<2; i++){
-            for(j=0; j<4; j++){
+//    img.src = 'data:image/svg+xml;base64,' + btoa(svgData);
+  
+//     img.onload = function () {
+//         for (i=0; i<2; i++){
+//             for(j=0; j<4; j++){
                
               
-                updatePostcard(); 
-                // console.log(linesNoiseAmount.value);
-                ctx.drawImage(img, postcardWidth*i, postcardHeight*j, postcardWidth, postcardHeight);
+//                 let linesNoiseAmount = parseInt(document.getElementById('linesNoiseAmount').value) + Math.random();
+    
+//                 // Update noise amounts
+            
+//                 document.getElementById('linesNoiseAmount').value = linesNoiseAmount;
+    
+          
+//                 updatePostcard(); 
+        
+//                 ctx.drawImage(img, postcardWidth*i, postcardHeight*j, postcardWidth, postcardHeight);
               
-            }
+//             }
            
-        }
+//         }
   
-
-    let link = document.createElement('a');
-    link.download = 'postcard.png';
-    link.href = canvas.toDataURL('image/png');
-    link.click();
-    };
+//         let link = document.createElement('a');
+//         link.download = 'postcard.png';
+//         link.href = canvas.toDataURL('image/png');
+//         link.click();
+//     };
 
     
+   
+// }
+
+function saveAsPng() {
+    let canvas = document.createElement('canvas');
+    let ctx = canvas.getContext('2d');
+
+    let frameWidth = 2970;
+    let frameHeight = 4200;
+    let postcardWidth = frameWidth / 2;
+    let postcardHeight = frameHeight / 4;
+
+    // Set the canvas dimensions to match the frame size
+    canvas.width = postcardWidth * 2;
+    canvas.height = postcardHeight * 4;
+
+    for (let i = 0; i < 2; i++) {
+        for (let j = 0; j < 4; j++) {
+            // Increment or randomize noise amount for each postcard
+            let frameNoiseAmount = parseInt(document.getElementById('frameNoiseAmount').value) + Math.random();
+            let stampNoiseAmount = parseInt(document.getElementById('stampNoiseAmount').value) + Math.random();
+            let linesNoiseAmount = parseInt(document.getElementById('linesNoiseAmount').value) + Math.random();
+
+            // Update noise amounts
+            document.getElementById('frameNoiseAmount').value = frameNoiseAmount;
+            document.getElementById('stampNoiseAmount').value = stampNoiseAmount;
+            document.getElementById('linesNoiseAmount').value = linesNoiseAmount;
+
+            // Update the postcard SVG with the new noise values
+            updatePostcard();
+
+            // Get the updated SVG data
+            let svg = document.querySelector('svg');
+            let svgData = new XMLSerializer().serializeToString(svg);
+
+            // Convert the SVG to an image
+            let img = new Image();
+            img.src = 'data:image/svg+xml;base64,' + btoa(svgData);
+
+            img.onload = function() {
+                // Draw the updated postcard on the canvas
+                ctx.drawImage(img, postcardWidth * i, postcardHeight * j, postcardWidth, postcardHeight);
+
+                // After all images are drawn, save the canvas as an image
+                if (i === 1 && j === 3) {
+                    let link = document.createElement('a');
+                    link.download = 'postcard.png';
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                }
+            };
+        }
+    }
 }
-
-
 function saveAsImage() {
 
     var svg = document.getElementById('postcard');
