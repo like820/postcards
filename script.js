@@ -209,6 +209,19 @@ function updatePostcard() {
     lines.setAttribute('stroke-dasharray', linesDashAmount);
     lines.setAttribute('stroke-width', linesStrokeAmount);
 
+// //values for every parameter at once
+// // let advancedControls = document.getElementById('advancedControls').checked;
+// // if(parseInt(document.getElementById('strokeAmount').value>0){
+//     let strokeAmount = parseInt(document.getElementById('strokeAmount').value);
+//     let noiseAmount =  parseInt(document.getElementById('noiseAmount').value);
+//     let dashAmount = parseInt(document.getElementById('dashAmount').value);
+//     linesStrokeAmount , stampStrokeAmount , frameStrokeAmount  = strokeAmount;
+//     linesNoiseAmount , stampNoiseAmount ,frameNoiseAmount  = noiseAmount;
+//     linesDashAmount , stampDashAmount , frameDashAmount  = dashAmount;
+
+ 
+    
+
 }
 
 // Add event listeners to all input elements
@@ -311,7 +324,7 @@ function saveAsPng() {
                 // After all images are drawn, save the canvas as an image
                 if (i === 1 && j === 3) {
                     let link = document.createElement('a');
-                    link.download = 'postcard.png';
+                    link.download = 'postcardA4grid.png';
                     link.href = canvas.toDataURL('image/png');
                     link.click();
                 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Postcard Template Creator</title>
+    <title>Postcard™ 💧</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
     
@@ -36,13 +36,22 @@
       
 
         <div class="controls">
+<!--            
+            <div class="control-group">
+                <h3>Basic</h3>
+          
+                <div><label>Noise amount:</label><input type="range" id="noiseAmount" min="0" max="100" value="0"></div>
+                <div><label>Dash amount:</label><input type="range" id="dashAmount" min="0" max="100" value="0"></div>
+                <div><label>Stroke amount:</label><input type="range" id="strokeAmount" min="0" max="100" value="0"></div>
+            </div> -->
            
+            <!-- <div><label>Advanced Controls</label><input type="checkbox" id="advancedControls" checked></div> -->
             <div class="control-group">
                 <h3>Frame</h3>
-                <div><label>X Position:</label><input type="range" id="frameX" min="0" max="400" value="50"></div>
-                <div><label>Y Position:</label><input type="range" id="frameY" min="0" max="400" value="50"></div>
-                <div><label>Width:</label><input type="range" id="frameWidth" min="200" max="800" value="800"></div>
-                <div><label>Height:</label><input type="range" id="frameHeight" min="200" max="800" value="500"></div>
+                <div id="advancedHidden"><label>X Position:</label><input type="range" id="frameX" min="0" max="400" value="50"></div>
+                <div id="advancedHidden"><label>Y Position:</label><input type="range" id="frameY" min="0" max="400" value="50"></div>
+                <div id="advancedHidden"><label>Width:</label><input type="range" id="frameWidth" min="200" max="800" value="800"></div>
+                <div id="advancedHidden"><label>Height:</label><input type="range" id="frameHeight" min="200" max="800" value="500"></div>
                 <div><label>Points per side:</label><input type="range" id="framePointsPerSide" min="2" max="100" value="50"></div>
                 <div><label>Noise amount:</label><input type="range" id="frameNoiseAmount" min="0" max="100" value="25"></div>
                 <div><label>Smooth curve:</label><input type="checkbox" id="frameSmoothCurve" value="checked" checked></div>
@@ -51,9 +60,9 @@
             </div>
             <div class="control-group">
                 <h3>Stamp</h3>
-                <div><label>X Position:</label><input type="range" id="stampX" min="0" max="900" value="675"></div>
-                <div><label>Y Position:</label><input type="range" id="stampY" min="0" max="550" value="100"></div>
-                <div><label>Size:</label><input type="range" id="stampSize" min="10" max="200" value="125"></div>
+                <div id="advancedHidden"><label>X Position:</label><input type="range" id="stampX" min="0" max="900" value="675"></div>
+                <div id="advancedHidden"><label>Y Position:</label><input type="range" id="stampY" min="0" max="550" value="100"></div>
+                <div id="advancedHidden"><label>Size:</label><input type="range" id="stampSize" min="10" max="200" value="125"></div>
                 <div><label>Points per side:</label><input type="range" id="stampPointsPerSide" min="2" max="100" value="20"></div>
                 <div><label>Noise amount:</label><input type="range" id="stampNoiseAmount" min="0" max="100" value="5"></div>
                 <div><label>Smooth curve:</label><input type="checkbox" id="stampSmoothCurve" checked></div>
@@ -62,26 +71,25 @@
             </div>
             <div class="control-group">
                 <h3>Line</h3>
-                <div><label>X Position:</label><input type="range" id="linesX" min="0" max="900" value="150"></div>
-                <div><label>Y Position:</label><input type="range" id="linesY" min="0" max="550" value="450"></div>
-                <div><label>Width:</label><input type="range" id="linesWidth" min="0" max="800" value="300"></div>
-                <div><label>Height:</label><input type="range" id="linesHeight" min="0" max="800" value="100"></div>
+                <div id="advancedHidden"><label>X Position:</label><input type="range" id="linesX" min="0" max="900" value="150"></div>
+                <div id="advancedHidden"><label>Y Position:</label><input type="range" id="linesY" min="0" max="550" value="450"></div>
+                <div id="advancedHidden"><label>Width:</label><input type="range" id="linesWidth" min="0" max="800" value="300"></div>
+                <div id="advancedHidden"><label>Height:</label><input type="range" id="linesHeight" min="0" max="800" value="100"></div>
                 <div><label>Points per side:</label><input type="range" id="linesPointsPerSide" min="2" max="100" value="20"></div>
                 <div><label>Noise amount:</label><input type="range" id="linesNoiseAmount" min="0" max="100" value="24"></div>
                 <div><label>Smooth curve:</label><input type="checkbox" id="linesSmoothCurve" checked></div>
                 <div><label>Dash amount:</label><input type="range" id="linesDashAmount" min="0" max="100" value="0"></div>
                 <div><label>Stroke amount:</label><input type="range" id="linesStrokeAmount" min="0" max="100" value="8"></div>
             </div>
-            
+            <div class="control-group" id="saveControls">
+                <button onclick="saveAsImage()">
+                    
+                    <label>Save As SVG</label><input type="range" id="linesNoiseAmount" min="0" max="100" value="8">
+                </button>
+                <button onclick="saveAsPng()">Save As Grid</button>
+            </div>  
         </div>
-        <div class="control-group">
-            <button onclick="saveAsImage()">Save as Svg
-                
-                <label>Noise Save</label><input type="range" id="linesNoiseAmount" min="0" max="100" value="8"></div>  
-            </button>
-            <button onclick="saveAsPng()">Save as Png</button>
-            <div>
-        </div>
+       
 </div>
 
   <script src="script.js"></script>

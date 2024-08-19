@@ -54,3 +54,11 @@ label {
 
     margin-top: 0.82em;
 }
+#advancedHidden {
+    display: none;
+}
+#saveControls
+{
+ margin: 2em;
+ display: flex;
+}
