@@ -204,20 +204,44 @@ function updatePostcard() {
     let linesSmoothCurve = document.getElementById('linesSmoothCurve').checked;
 
     let linesPoints = createWavyLine(linesX, linesY, linesWidth, linesHeight, linesPointsPerSide, linesNoiseAmount);
+   
 //  linesNoiseAmount= linesNoiseAmount+10;
     lines.setAttribute('d', pointsToLines(linesPoints, true, linesSmoothCurve));
     lines.setAttribute('stroke-dasharray', linesDashAmount);
     lines.setAttribute('stroke-width', linesStrokeAmount);
 
-// //values for every parameter at once
-// // let advancedControls = document.getElementById('advancedControls').checked;
-// // if(parseInt(document.getElementById('strokeAmount').value>0){
-//     let strokeAmount = parseInt(document.getElementById('strokeAmount').value);
-//     let noiseAmount =  parseInt(document.getElementById('noiseAmount').value);
-//     let dashAmount = parseInt(document.getElementById('dashAmount').value);
-//     linesStrokeAmount , stampStrokeAmount , frameStrokeAmount  = strokeAmount;
-//     linesNoiseAmount , stampNoiseAmount ,frameNoiseAmount  = noiseAmount;
-//     linesDashAmount , stampDashAmount , frameDashAmount  = dashAmount;
+
+    // let linesPoints2 = createWavyLine(linesX, linesY-50, linesWidth, linesHeight, linesPointsPerSide, linesNoiseAmount);
+    // //  linesNoiseAmount= linesNoiseAmount+10;
+    //     lines.setAttribute('d', pointsToLines(linesPoints2, true, linesSmoothCurve));
+    //     lines.setAttribute('stroke-dasharray', linesDashAmount);
+    //     lines.setAttribute('stroke-width', linesStrokeAmount);
+
+//values for every parameter at once
+// let advancedControls = document.getElementById('advancedControls').checked;
+
+    let strokeAmount = parseInt(document.getElementById('strokeAmount').value);
+    let noiseAmount =  parseInt(document.getElementById('noiseAmount').value);
+    let dashAmount = parseInt(document.getElementById('dashAmount').value);
+
+    if(strokeAmount>0){
+    frame.setAttribute('stroke-width', strokeAmount);
+    lines.setAttribute('stroke-width', strokeAmount);
+    stamp.setAttribute('stroke-width', strokeAmount);
+}
+    if(noiseAmount>0){
+       framePoints = createWavyPath(frameX, frameY, frameWidth, frameHeight, framePointsPerSide, noiseAmount);
+       frame.setAttribute('d', pointsToPath(framePoints, true, frameSmoothCurve));
+       linesPoints = createWavyLine(linesX, linesY, linesWidth, linesHeight, linesPointsPerSide, noiseAmount);
+       lines.setAttribute('d', pointsToLines(linesPoints, true, linesSmoothCurve));
+    stampPoints = createWavyPath(stampX, stampY, stampSize, stampSize, stampPointsPerSide, noiseAmount);
+    stamp.setAttribute('d', pointsToPath(stampPoints, true, stampSmoothCurve));
+}
+    if(dashAmount>0){
+        frame.setAttribute('stroke-dasharray', dashAmount);
+        lines.setAttribute('stroke-dasharray', dashAmount);
+        stamp.setAttribute('stroke-dasharray', dashAmount);
+}
 
  
     
