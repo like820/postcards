@@ -5,14 +5,14 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background-color: ghostwhite;
     font-family: monospace;
     letter-spacing: 0.082em;
 }
 .container {
-    text-align: center;
+    /* text-align: center; */
     padding: 2em;
-    width: 82%;
+    width: 69%;
 }
 /* #postcard {
     width: 600px;
@@ -65,8 +65,9 @@ label {
     flex-wrap: wrap;
     place-content: space-around;
     padding: 1em;
-    border: 0.5em solid;
+    border: 0.5em dashed;
     border-color: #000082;
+    padding: 1em;
 }
 .basicControls{
     display: flex;
@@ -81,3 +82,24 @@ label {
 #advancedHidden {
     display: none;
 }
+.footer {
+    /* position: absolute; */
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem; 
+    margin-top: 8.20em; 
+    text-align: center;
+          
+  }
+  a{
+    text-decoration: none;  
+
+  }
+  input{
+    cursor: grab;
+  }
+  button{
+    font-family: monospace;
+    font-size: small;
+   
+  }
