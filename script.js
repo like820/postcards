@@ -1,9 +1,14 @@
 
+//define frames
+
 let frame = document.getElementById('frame');
-// let textArea = document.getElementById('textArea');
+
 let stamp = document.getElementById('stamp');
 let textContent = document.getElementById('textContent');
 // let messageInput = document.getElementById('messageInput');
+// let textArea = document.getElementById('textArea');
+
+
 //define lines
 let lineGroup = document.getElementById('lines');
 let lineControls = document.getElementById('lineControls');
@@ -305,7 +310,58 @@ document.querySelectorAll('input').forEach(input => {
    
 // }
 
-function saveAsPng() {
+function saveAsA4() {
+    let canvas = document.createElement('canvas');
+    let ctx = canvas.getContext('2d');
+
+    let frameWidth = 2970;
+    let frameHeight = 2100;
+    let postcardWidth = frameWidth / 2;
+    let postcardHeight = frameHeight / 2;
+
+    // Set the canvas dimensions to match the frame size
+    canvas.width = postcardWidth * 2;
+    canvas.height = postcardHeight * 2;
+
+    for (let i = 0; i < 2; i++) {
+        for (let j = 0; j < 4; j++) {
+            // Increment or randomize noise amount for each postcard
+            let frameNoiseAmount = parseInt(document.getElementById('frameNoiseAmount').value) + Math.random();
+            let stampNoiseAmount = parseInt(document.getElementById('stampNoiseAmount').value) + Math.random();
+            let linesNoiseAmount = parseInt(document.getElementById('linesNoiseAmount').value) + Math.random();
+
+            // Update noise amounts
+            document.getElementById('frameNoiseAmount').value = frameNoiseAmount;
+            document.getElementById('stampNoiseAmount').value = stampNoiseAmount;
+            document.getElementById('linesNoiseAmount').value = linesNoiseAmount;
+
+            // Update the postcard SVG with the new noise values
+            updatePostcard();
+
+            // Get the updated SVG data
+            let svg = document.querySelector('svg');
+            let svgData = new XMLSerializer().serializeToString(svg);
+
+            // Convert the SVG to an image
+            let img = new Image();
+            img.src = 'data:image/svg+xml;base64,' + btoa(svgData);
+
+            img.onload = function() {
+                // Draw the updated postcard on the canvas
+                ctx.drawImage(img, postcardWidth * i, postcardHeight * j, postcardWidth, postcardHeight);
+
+                // After all images are drawn, save the canvas as an image
+                if (i === 1 && j === 3) {
+                    let link = document.createElement('a');
+                    link.download = 'postcardA4grid.png';
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                }
+            };
+        }
+    }
+}
+function saveAsA3() {
     let canvas = document.createElement('canvas');
     let ctx = canvas.getContext('2d');
 
@@ -356,7 +412,7 @@ function saveAsPng() {
         }
     }
 }
-function saveAsImage() {
+function saveAsSvg() {
 
     var svg = document.getElementById('postcard');
     let svgData = new XMLSerializer().serializeToString(svg);
