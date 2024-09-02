@@ -248,8 +248,18 @@ function updatePostcard() {
         stamp.setAttribute('stroke-dasharray', dashAmount);
 }
 
- 
-    
+let overlayButton = document.getElementById('overlay');
+let postcard= document.getElementById('postcard');
+
+postcard.classList.toggle("fixedOverlay", overlayButton.checked==true);
+
+
+
+let advancedControlsButton = document.getElementById('advancedControlsButton');
+document.querySelectorAll('#advancedHidden').forEach(function (elem) {
+    elem.classList.toggle("advancedHidden", advancedControlsButton.checked==false);
+});
+
 
 }
 

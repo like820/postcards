@@ -13,8 +13,9 @@
 </head>
 <body>
     <div class="container">
-        
+       
         <svg id="postcard" viewBox="0 0 900 600">
+            
             <rect width="900" height="600" fill="white" />
             
             <!-- Frame -->
@@ -34,7 +35,7 @@
         <!-- <br>
         <textarea id="messageInput" placeholder="Enter your message here"></textarea>
         <br> -->
-      
+    <div class="overlayButton"><label>overlay<input type="checkbox" id="overlay"></label></div>
 
         <div class="controls">
            <div class="basicControls">
@@ -54,14 +55,16 @@
             </div>  
         </div>
             <div id="advancedControls">
-                <label>Advanced Controls</label>
+            
+   
+                <div class="advancedControlsButton"><label>Advanced Controls<input type="checkbox" id="advancedControlsButton"></label></div>
                 <!-- <input type="checkbox" id="advancedControls" checked> -->
             <div class="control-group">
                 <h3>Frame</h3>
-                <div id="advancedHidden"><label>X Position:</label><input type="range" id="frameX" min="0" max="400" value="50"></div>
-                <div id="advancedHidden"><label>Y Position:</label><input type="range" id="frameY" min="0" max="400" value="50"></div>
-                <div id="advancedHidden"><label>Width:</label><input type="range" id="frameWidth" min="200" max="800" value="800"></div>
-                <div id="advancedHidden"><label>Height:</label><input type="range" id="frameHeight" min="200" max="800" value="500"></div>
+                <div id="advancedHidden" class="advancedHidden"><label>X Position:</label><input type="range" id="frameX" min="0" max="400" value="50"></div>
+                <div id="advancedHidden" class="advancedHidden"><label>Y Position:</label><input type="range" id="frameY" min="0" max="400" value="50"></div>
+                <div id="advancedHidden" class="advancedHidden"><label>Width:</label><input type="range" id="frameWidth" min="200" max="800" value="800"></div>
+                <div id="advancedHidden" class="advancedHidden"><label>Height:</label><input type="range" id="frameHeight" min="200" max="800" value="500"></div>
                 <div><label>Points per side:</label><input type="range" id="framePointsPerSide" min="2" max="100" value="50"></div>
                 <div><label>Noise amount:</label><input type="range" id="frameNoiseAmount" min="0" max="100" value="25"></div>
               
@@ -71,9 +74,9 @@
             </div>
             <div class="control-group">
                 <h3>Stamp</h3>
-                <div id="advancedHidden"><label>X Position:</label><input type="range" id="stampX" min="0" max="900" value="650"></div>
-                <div id="advancedHidden"><label>Y Position:</label><input type="range" id="stampY" min="0" max="550" value="125"></div>
-                <div id="advancedHidden"><label>Size:</label><input type="range" id="stampSize" min="10" max="200" value="125"></div>
+                <div id="advancedHidden" class="advancedHidden"><label>X Position:</label><input type="range" id="stampX" min="0" max="900" value="650"></div>
+                <div id="advancedHidden" class="advancedHidden"><label>Y Position:</label><input type="range" id="stampY" min="0" max="550" value="125"></div>
+                <div id="advancedHidden" class="advancedHidden"><label>Size:</label><input type="range" id="stampSize" min="10" max="200" value="125"></div>
                 <div><label>Points per side:</label><input type="range" id="stampPointsPerSide" min="2" max="100" value="12"></div>
                 <div><label>Noise amount:</label><input type="range" id="stampNoiseAmount" min="0" max="100" value="5"></div>
                 
@@ -83,10 +86,10 @@
             </div>
             <div class="control-group">
                 <h3>Line</h3>
-                <div id="advancedHidden"><label>X Position:</label><input type="range" id="linesX" min="0" max="900" value="150"></div>
-                <div id="advancedHidden"><label>Y Position:</label><input type="range" id="linesY" min="0" max="550" value="420"></div>
-                <div id="advancedHidden"><label>Width:</label><input type="range" id="linesWidth" min="0" max="800" value="300"></div>
-                <div id="advancedHidden"><label>Height:</label><input type="range" id="linesHeight" min="0" max="800" value="100"></div>
+                <div id="advancedHidden" class="advancedHidden"><label>X Position:</label><input type="range" id="linesX" min="0" max="900" value="150"></div>
+                <div id="advancedHidden" class="advancedHidden"><label>Y Position:</label><input type="range" id="linesY" min="0" max="550" value="420"></div>
+                <div id="advancedHidden" class="advancedHidden"><label>Width:</label><input type="range" id="linesWidth" min="0" max="800" value="300"></div>
+                <div id="advancedHidden class="advancedHidden"><label>Height:</label><input type="range" id="linesHeight" min="0" max="800" value="100"></div>
                 <div><label>Points per side:</label><input type="range" id="linesPointsPerSide" min="2" max="100" value="20"></div>
                 <div><label>Noise amount:</label><input type="range" id="linesNoiseAmount" min="0" max="100" value="24"></div>
                

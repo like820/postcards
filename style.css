@@ -14,20 +14,9 @@ body {
     padding: 2em;
     width: 69%;
 }
-/* #postcard {
-    width: 600px;
-    height: 400px;
-    background-color: white;
-    border: 1px solid #ccc;
-    margin-bottom: 20px;
-    position: absolute;
-top: 0;
-left: 0;
-mix-blend-mode: color-burn;
-width: 100vw;
-height: 100vh;
-z-index: -100;
-} */
+#postcard {
+    transition: 1s all;
+}
 textarea {
     width: 80%;
     height: 100px;
@@ -80,6 +69,8 @@ label {
 }
 
 #advancedHidden {
+}
+.advancedHidden {
     display: none;
 }
 .footer {
@@ -102,4 +93,19 @@ label {
     font-family: monospace;
     font-size: small;
    
+  }
+
+  .fixedOverlay{
+    position: sticky;
+    /* mix-blend-mode: darken; */
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    border-radius: 1em;
+    margin: 1em;
+    border: 0.2em dashed #000082;
+  }
+ 
+  .overlayButton{
+    text-align: right;
   }
