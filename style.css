@@ -68,8 +68,8 @@ label {
     border-color: #000082;
 }
 
-#advancedHidden {
-}
+/* #advancedHidden {
+} */
 .advancedHidden {
     display: none;
 }
